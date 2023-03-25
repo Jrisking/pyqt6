@@ -8,10 +8,12 @@ painter = QPainter(O
 painter.begin(O
 painter.drawText(……)
 painter.end()
-必须在paintEvent事件方法中绘制各种元素
+必须在paintEvent事件方法中绘制各种元素  ////^^^^^^^最重要.
+
+绘制什么曲线什么的，可以再看看48集以后得视频
 
 
-"""
+""" 
 
 import sys
 from PyQt5.QtWidgets import QApplication, QWidget
@@ -25,14 +27,14 @@ class DrawText(QWidget):
         self.resize(300,200)
         self.text = "python,hello"
 
-    def painEvent(self, event):
+    def paintEvent(self, event):
         painter = QPainter(self)
         painter.begin(self)
 
         painter.setPen(QColor(150, 43, 5))
         painter.setFont(QFont('SimSun', 25))
 
-        painter.drawText(event.rect(), Qt.AlignCenter, self.text)
+        painter.drawText(event.rect()  , Qt.AlignCenter, self.text)
         painter.end()
 
 if __name__ == '__main__':
